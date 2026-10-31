@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap Index for www.xparenthesis.com
+Sitemap: https://www.xparenthesis.com/sitemap.xml
+

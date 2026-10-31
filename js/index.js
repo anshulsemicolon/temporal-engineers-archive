@@ -451,8 +451,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 1. Enable Motion Ready State on Body
   document.body.classList.add("motion-ready");
 
-  // 2. Staggered Scroll Reveal Observer (Projects, Timeline Jobs, Skills, Metrics)
-  const revealTargets = document.querySelectorAll(".project, .job, .skill-row, .metric, .reality-divider");
+  // 2. Staggered Scroll Reveal Observer (Projects, Timeline Jobs, Skills, Metrics, FAQ)
+  const revealTargets = document.querySelectorAll(".project, .job, .skill-row, .metric, .reality-divider, .faq-item");
 
   if ("IntersectionObserver" in window && !prefersReduced) {
     const revealObserver = new IntersectionObserver((entries, obs) => {

@@ -1564,7 +1564,8 @@ nav a.active::after {
 body.motion-ready .project,
 body.motion-ready .job,
 body.motion-ready .skill-row,
-body.motion-ready .metric {
+body.motion-ready .metric,
+body.motion-ready .faq-item {
   opacity: 0.15;
   transform: translateY(32px) scale(0.985);
   transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
@@ -1577,7 +1578,8 @@ body.motion-ready .metric {
 body.motion-ready .project.is-revealed,
 body.motion-ready .job.is-revealed,
 body.motion-ready .skill-row.is-revealed,
-body.motion-ready .metric.is-revealed {
+body.motion-ready .metric.is-revealed,
+body.motion-ready .faq-item.is-revealed {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
@@ -1596,6 +1598,11 @@ body.motion-ready .skill-row:nth-child(3) { transition-delay: 0.12s; }
 body.motion-ready .skill-row:nth-child(4) { transition-delay: 0.16s; }
 body.motion-ready .skill-row:nth-child(5) { transition-delay: 0.20s; }
 body.motion-ready .skill-row:nth-child(6) { transition-delay: 0.24s; }
+
+body.motion-ready .faq-item:nth-child(1) { transition-delay: 0.05s; }
+body.motion-ready .faq-item:nth-child(2) { transition-delay: 0.12s; }
+body.motion-ready .faq-item:nth-child(3) { transition-delay: 0.19s; }
+body.motion-ready .faq-item:nth-child(4) { transition-delay: 0.26s; }
 
 /* 4. Interactive Hover & 3D Lift on Project Dossiers */
 .project {
@@ -1837,12 +1844,81 @@ body.motion-ready .job.is-revealed .date:before {
   animation: headingGlitch 0.22s ease forwards;
 }
 
+/* ==========================================================================
+   AEO & GEO: ARCHIVE INQUIRIES & FAQ SECTION
+   ========================================================================== */
+.faq-section {
+  padding: 80px 0 100px;
+  position: relative;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 36px;
+}
+@media (max-width: 800px) {
+  .faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.faq-item {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 26px 28px;
+  border-radius: 4px;
+  position: relative;
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.faq-item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0%;
+  background: var(--orange);
+  transition: height 0.35s ease;
+}
+.faq-item:hover {
+  border-color: rgba(217, 119, 54, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 15px rgba(217, 119, 54, 0.1);
+}
+.faq-item:hover:before {
+  height: 100%;
+}
+.faq-item .faq-tag {
+  font-size: 10px;
+  color: var(--orange);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: block;
+}
+.faq-item h3 {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--text);
+  margin: 0 0 12px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.faq-item p {
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--muted);
+  margin: 0;
+}
+
 /* Reduced Motion Safety */
 @media (prefers-reduced-motion: reduce) {
   body.motion-ready .project,
   body.motion-ready .job,
   body.motion-ready .skill-row,
-  body.motion-ready .metric {
+  body.motion-ready .metric,
+  body.motion-ready .faq-item {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;

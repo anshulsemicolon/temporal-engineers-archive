@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#181b16" />
+    <meta
+      name="description"
+      content="Anshul Kulkarni — Full-stack engineer building production web applications, healthcare systems and GenAI integrations."
+    />
+    <title>Anshul Kulkarni | Temporal Engineering Archive</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <!-- Tactical Cursor Tracker Reticle -->
+    <div class="cursor-tracker" id="cursor-tracker" aria-hidden="true">
+      <div class="cursor-dot"></div>
+      <div class="cursor-reticle"></div>
+    </div>
+    <!-- Stationary Tactical Telemetry HUD -->
+    <div class="terminal-telemetry mono" aria-hidden="true">
+      <span class="telemetry-tag">AK-001 // PLAYHEAD: <b id="chrono-year" style="color:var(--orange);">2050</b></span>
+      <span class="telemetry-coords" id="hud-coords">X:0000 Y:0000</span>
+      <span class="telemetry-sep">·</span>
+      <span class="telemetry-status" id="hud-state">SYSTEM READY</span>
+    </div>
+    
+    <header class="top">
+      <div class="wrap nav">
+        <a class="brand" href="#home" aria-label="Anshul Kulkarni home"
+          ><span class="sigil">AK</span
+          ><span class="mono" style="font-size: 12px"
+            >ANSHUL KULKARNI<small>TEMPORAL ENGINEERING ARCHIVE</small></span
+          ></a
+        >
+        <nav id="navigation" aria-label="Main navigation">
+          <a href="#work">01 / Work</a><a href="#experience">02 / Timeline</a
+          ><a href="#skills">03 / Systems</a
+          ><a href="#contact">04 / Contact ↗</a>
+          <!-- BGM Toggle (Mobile) - Temporarily commented out
+          <button class="bgm-toggle mobile-only mono" id="bgm-toggle-mobile" aria-label="Toggle background music">
+            <span class="bgm-indicator" aria-hidden="true"></span>
+            <svg class="bgm-icon bgm-icon-sound" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+            <svg class="bgm-icon bgm-icon-mute" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="display: none;">
+              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+            </svg>
+            <span class="bgm-text">BGM: ON</span>
+          </button>
+          -->
+        </nav>
+        <div class="nav-status-group">
+          <!-- BGM Toggle (Desktop) - Temporarily commented out
+          <button
+            class="bgm-toggle mono active"
+            id="bgm-toggle"
+            aria-label="Toggle background music"
+            title="Toggle background music"
+          >
+            <span class="bgm-indicator" aria-hidden="true"></span>
+            <svg class="bgm-icon bgm-icon-sound" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+              <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+            </svg>
+            <svg class="bgm-icon bgm-icon-mute" viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true" style="display: none;">
+              <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+            </svg>
+            <span class="bgm-text">BGM: ON</span>
+          </button>
+          -->
+          <div class="status"><i class="dot"></i> ARCHIVE ONLINE</div>
+        </div>
+        <button
+          class="menu-toggle"
+          aria-controls="navigation"
+          aria-expanded="false"
+        >
+          MENU +
+        </button>
+      </div>
+      <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+    </header>
+    <main>
+      <section class="hero" id="home">
+        <div class="orbital"></div>
+        <div class="wrap">
+          <div class="coordinates mono">
+            <span>PERSONNEL FILE / AK–001 / EARTH–IN</span
+            ><span>INTERFACE YEAR: 2050 · PORTFOLIO ARCHIVE</span>
+          </div>
+          <div class="hero-grid">
+            <div class="reveal">
+              <div class="eyebrow">
+                Full-stack engineer / GenAI integrations
+              </div>
+              <h1>
+                Building<br />systems.<span>Beyond<br />the ordinary.</span>
+              </h1>
+              <p class="intro">
+                I'm Anshul. I build
+                <strong
+                  >production-grade web applications and AI-powered
+                  workflows</strong
+                >
+                — from healthcare billing engines to real-time document
+                intelligence.
+              </p>
+              <div class="actions">
+                <a class="button" href="#work">EXPLORE MY WORK <span>↘</span></a
+                ><a
+                  class="button secondary"
+                  href="public/resume.pdf"
+                  target="_blank"
+                  download="Anshul_Kulkarni_Resume.pdf"
+                  id="resume-btn"
+                  >OPEN RÉSUMÉ <span>↓</span></a
+                >
+              </div>
+              <p class="smallprint mono">
+                BENGALURU, INDIA &nbsp; / &nbsp; OPEN TO RELOCATE
+              </p>
+            </div>
+            <div class="record">
+              <div class="record-head mono">
+                <span>ENGINEERING DIVISION</span><span>FILE № 001 // SEC-L9</span>
+              </div>
+              
+              <!-- Canonical TEA (Temporal Engineers Archive) Business Card & Sacred Timeline Dossier -->
+              <div class="tva-card-stage" id="tva-card-stage">
+                <!-- Marvel Time-Slip Ghost Overlays & Dimension Warp Container -->
+                <div class="tva-timeslip-wrapper" id="tva-timeslip-wrapper">
+                  <div class="timeslip-ghost timeslip-ghost-cyan" aria-hidden="true"></div>
+                  <div class="timeslip-ghost timeslip-ghost-amber" aria-hidden="true"></div>
+                  
+                  <!-- Timeline Filaments (Loki Temporal Weave Threads) -->
+                  <div class="timeline-filaments" aria-hidden="true">
+                    <svg viewBox="0 0 360 560" fill="none" xmlns="http://www.w3.org/2000/svg" class="filaments-svg">
+                      <path d="M 20 60 Q 180 -15 340 60" class="filament-thread filament-gold" />
+                      <path d="M 20 500 Q 180 575 340 500" class="filament-thread filament-green" />
+                      <path d="M 12 180 Q -18 280 12 380" class="filament-thread filament-gold" />
+                      <path d="M 348 180 Q 378 280 348 380" class="filament-thread filament-cyan" />
+                    </svg>
+                  </div>
+
+                  <!-- Glitch Scanlines -->
+                  <div class="timeslip-glitch-layer" aria-hidden="true"></div>
+
+                  <div class="tva-card" id="tva-card" role="button" tabindex="0" aria-label="TEA Archival Business Card. Click or press Enter to flip between Agent ID and Sacred Timeline.">
+                  <!-- FRONT: TEA AGENT ID -->
+                  <div class="tva-card-face tva-card-front">
+                    <div class="tva-card-sheen" aria-hidden="true"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 560" width="100%" height="100%" class="tva-card-svg tva-front-svg">
+  <defs>
+    <!-- Metallic Copper Gradients -->
+    <linearGradient id="tvaCopper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5af68"/>
+      <stop offset="25%" stop-color="#df843a"/>
+      <stop offset="55%" stop-color="#c96f2a"/>
+      <stop offset="85%" stop-color="#e8984e"/>
+      <stop offset="100%" stop-color="#ad581c"/>
+    </linearGradient>
+    <linearGradient id="tvaCopperLight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffbe7d"/>
+      <stop offset="100%" stop-color="#cf752f"/>
+    </linearGradient>
+    <linearGradient id="tvaCopperDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7a3d12"/>
+      <stop offset="100%" stop-color="#3d1d07"/>
+    </linearGradient>
+    <linearGradient id="tvaCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#161813"/>
+      <stop offset="50%" stop-color="#10120e"/>
+      <stop offset="100%" stop-color="#0c0d0a"/>
+    </linearGradient>
+    <radialGradient id="tvaSheen" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="rgba(255,220,180,0.18)"/>
+      <stop offset="50%" stop-color="rgba(239,155,72,0.05)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+    <!-- Photo Framing Clip -->
+    <clipPath id="tvaPhotoClip">
+      <rect x="76" y="234" width="208" height="206" rx="14" ry="14"/>
+    </clipPath>
+    <!-- Subtle glow filter -->
+    <filter id="copperGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. Card Base (Matte Obsidian) -->
+  <rect x="6" y="6" width="348" height="548" rx="22" ry="22" fill="url(#tvaCardBg)"/>
+
+  <!-- 2. Outer Copper Double Border -->
+  <rect x="12" y="12" width="336" height="536" rx="18" ry="18" fill="none" stroke="url(#tvaCopper)" stroke-width="2.2"/>
+  <rect x="17" y="17" width="326" height="526" rx="14" ry="14" fill="none" stroke="url(#tvaCopper)" stroke-width="0.9" opacity="0.85"/>
+
+  <!-- Corner Tech Accents -->
+  <path d="M 17 38 L 38 17 M 343 38 L 322 17 M 17 522 L 38 543 M 343 522 L 322 543" stroke="url(#tvaCopper)" stroke-width="1.2" opacity="0.6"/>
+  <circle cx="42" cy="42" r="2" fill="url(#tvaCopper)"/>
+  <circle cx="318" cy="42" r="2" fill="url(#tvaCopper)"/>
+  <circle cx="42" cy="518" r="2" fill="url(#tvaCopper)"/>
+  <circle cx="318" cy="518" r="2" fill="url(#tvaCopper)"/>
+
+  <!-- 3. Side Edge Circuit Traces (Black card margins) -->
+  <g stroke="url(#tvaCopper)" stroke-width="1.2" fill="none" opacity="0.8">
+    <!-- Left Margin Trace -->
+    <path d="M 23 70 V 160 L 28 170 V 390 L 23 400 V 490"/>
+    <circle cx="28" cy="170" r="1.5" fill="url(#tvaCopper)"/>
+    <circle cx="28" cy="390" r="1.5" fill="url(#tvaCopper)"/>
+    <!-- Right Margin Trace -->
+    <path d="M 337 70 V 160 L 332 170 V 390 L 337 400 V 490"/>
+    <circle cx="332" cy="170" r="1.5" fill="url(#tvaCopper)"/>
+    <circle cx="332" cy="390" r="1.5" fill="url(#tvaCopper)"/>
+  </g>
+
+  <!-- 4. Main Copper Plate Silhouette (The Sculpted Faceplate) -->
+  <!-- We draw the solid copper plate with precision cutouts -->
+  <g id="tva-faceplate">
+    <!-- Base Copper Fill for Upper & Mid Sections -->
+    <!-- Top arch down to photo level -->
+    <path d="
+      M 32 60
+      C 32 42, 44 32, 60 32
+      H 300
+      C 316 32, 328 42, 328 60
+      V 230
+      C 328 232, 326 234, 324 234
+      H 288
+      C 286 234, 284 236, 284 238
+      V 440
+      C 284 442, 286 444, 288 444
+      H 324
+      C 326 444, 328 446, 328 448
+      V 490
+      C 328 506, 318 518, 302 518
+      H 266
+      V 496
+      H 244
+      V 518
+      H 116
+      V 496
+      H 94
+      V 518
+      H 58
+      C 42 518, 32 506, 32 490
+      V 448
+      C 32 446, 34 444, 36 444
+      H 72
+      C 74 444, 76 442, 76 440
+      V 238
+      C 76 236, 74 234, 72 234
+      H 36
+      C 34 234, 32 232, 32 230
+      Z
+    " fill="url(#tvaCopper)" stroke="#7a3d12" stroke-width="1.2"/>
+
+    <!-- Inner Arch Contour (Highlight bevel line) -->
+    <path d="
+      M 36 62
+      C 36 46, 46 36, 62 36
+      H 298
+      C 314 36, 324 46, 324 62
+      V 228
+      H 282
+      V 446
+      H 324
+      V 488
+      C 324 502, 314 514, 300 514
+      H 268
+      V 498
+      H 242
+      V 514
+      H 118
+      V 498
+      H 92
+      V 514
+      H 60
+      C 46 514, 36 502, 36 488
+      V 446
+      H 78
+      V 228
+      H 36
+      Z
+    " fill="none" stroke="url(#tvaCopperLight)" stroke-width="0.8" opacity="0.6"/>
+  </g>
+
+  <!-- 5. Top Header Cartouche (TEMPORAL ENGINEERS ARCHIVE) -->
+  <g id="tva-header-box">
+    <!-- Inset dark box -->
+    <rect x="52" y="42" width="256" height="28" rx="3" ry="3" fill="#0d0f0b" stroke="url(#tvaCopperLight)" stroke-width="1.4"/>
+    <!-- Corner brackets -->
+    <path d="M 56 46 H 62 M 56 46 V 52 M 304 46 H 298 M 304 46 V 52 M 56 66 H 62 M 56 66 V 60 M 304 66 H 298 M 304 66 V 60" stroke="url(#tvaCopper)" stroke-width="1.2"/>
+    <!-- Title Text -->
+    <text x="180" y="60.5" text-anchor="middle" font-family="'Barlow Condensed', 'Arial Black', Impact, sans-serif" font-size="12.8" font-weight="900" letter-spacing="2.2" fill="url(#tvaCopperLight)">TEMPORAL ENGINEERS ARCHIVE</text>
+  </g>
+
+  <!-- 6. Serial Tech Bracket Line -->
+  <g id="tva-serial-bar">
+    <!-- Left Bracket Line -->
+    <path d="M 46 88 H 82 L 90 82 H 106" fill="none" stroke="#121411" stroke-width="2"/>
+    <path d="M 46 88 H 82 L 90 82 H 106" fill="none" stroke="url(#tvaCopperLight)" stroke-width="1.2"/>
+    <!-- Right Bracket Line -->
+    <path d="M 314 88 H 278 L 270 82 H 254" fill="none" stroke="#121411" stroke-width="2"/>
+    <path d="M 314 88 H 278 L 270 82 H 254" fill="none" stroke="url(#tvaCopperLight)" stroke-width="1.2"/>
+    <!-- Serial Number Text -->
+    <text x="180" y="87" text-anchor="middle" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="11.5" font-weight="700" letter-spacing="2.2" fill="#121411">414–620701–401220</text>
+    <text x="180" y="86.5" text-anchor="middle" font-family="'IBM Plex Mono', 'Courier New', monospace" font-size="11.5" font-weight="700" letter-spacing="2.2" fill="#0b0d09" opacity="0.95">414–620701–401220</text>
+  </g>
+
+  <!-- 7. The Canonical Bold TEA (Temporal Engineers Archive) Logo -->
+  <g id="tea-logo" fill="#11130e">
+    <!-- Letter T: Heavy Block Grotesque -->
+    <path d="M 46 116 H 118 V 135 H 94 V 204 H 70 V 135 H 46 Z"/>
+    
+    <!-- Letter E: Heavy Block with Recessed Center Arm -->
+    <path d="M 126 116 H 196 V 135 H 150 V 151 H 188 V 169 H 150 V 185 H 196 V 204 H 126 Z"/>
+
+    <!-- Letter A: Bold Geometric Silhouette with Inner Counter -->
+    <path d="M 238 116 H 264 L 294 204 H 268 L 260 180 H 238 L 230 204 H 206 Z M 251 138 L 243 162 H 259 Z" fill-rule="evenodd"/>
+
+    <!-- Signature Diagonal Stencil Slash across the A -->
+    <polygon points="226,116 240,116 272,204 258,204" fill="url(#tvaCopper)"/>
+  </g>
+
+  <!-- 8. Vertical Side Hazard / Chevron Telemetry Strips -->
+  <!-- Left Side Channel -->
+  <rect x="36" y="238" width="36" height="202" fill="#10120d" rx="2" stroke="url(#tvaCopper)" stroke-width="1"/>
+  <!-- Right Side Channel -->
+  <rect x="288" y="238" width="36" height="202" fill="#10120d" rx="2" stroke="url(#tvaCopper)" stroke-width="1"/>
+
+  <!-- Left Chevrons (Repeating high-tech hazard slashes) -->
+  <g stroke="url(#tvaCopper)" stroke-width="2.6" stroke-linecap="round" fill="none">
+    <path d="M 44 252 L 64 262 M 64 262 L 44 272"/>
+    <path d="M 44 282 L 64 292 M 64 292 L 44 302"/>
+    <path d="M 44 312 L 64 322 M 64 322 L 44 332"/>
+    <path d="M 44 342 L 64 352 M 64 352 L 44 362"/>
+    <path d="M 44 372 L 64 382 M 64 382 L 44 392"/>
+    <path d="M 44 402 L 64 412 M 64 412 L 44 422"/>
+  </g>
+
+  <!-- Right Chevrons -->
+  <g stroke="url(#tvaCopper)" stroke-width="2.6" stroke-linecap="round" fill="none">
+    <path d="M 296 252 L 316 262 M 316 262 L 296 272"/>
+    <path d="M 296 282 L 316 292 M 316 292 L 296 302"/>
+    <path d="M 296 312 L 316 322 M 316 322 L 296 332"/>
+    <path d="M 296 342 L 316 352 M 316 352 L 296 362"/>
+    <path d="M 296 372 L 316 382 M 316 382 L 296 392"/>
+    <path d="M 296 402 L 316 412 M 316 412 L 296 422"/>
+  </g>
+
+  <!-- 9. Central Photo Frame Cutout (Arch Window) -->
+  <!-- Dark Bevel & Recessed Frame -->
+  <rect x="74" y="232" width="212" height="210" rx="16" ry="16" fill="#0d0f0b" stroke="url(#tvaCopperDark)" stroke-width="2.5"/>
+  <rect x="76" y="234" width="208" height="206" rx="14" ry="14" fill="#1a1c17"/>
+
+  <!-- Anshul's Portrait with Canon Color Grading -->
+  <g clip-path="url(#tvaPhotoClip)">
+    <image href="public/anshul.jpg" x="76" y="218" width="208" height="230" preserveAspectRatio="xMidYMid slice" style="filter: sepia(0.38) contrast(1.15) brightness(0.96) saturate(0.85);"/>
+    <!-- Photo Glass Bevel & Scanline Sheen -->
+    <rect x="76" y="234" width="208" height="206" fill="url(#tvaSheen)" pointer-events="none"/>
+    <line x1="76" y1="234" x2="284" y2="440" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" pointer-events="none"/>
+  </g>
+
+  <!-- Photo Outer Frame Inset Stroke -->
+  <rect x="76" y="234" width="208" height="206" rx="14" ry="14" fill="none" stroke="url(#tvaCopper)" stroke-width="1.8" pointer-events="none"/>
+
+  <!-- 10. Bottom Stepped Geometric Prongs & Docking Traces -->
+  <g id="tva-bottom-dock">
+    <!-- Inset Circuit Docking Box -->
+    <rect x="118" y="456" width="124" height="42" fill="#10120d" stroke="url(#tvaCopper)" stroke-width="1.4" rx="3"/>
+    
+    <!-- Central Docking Prongs & Traces -->
+    <g stroke="url(#tvaCopper)" stroke-width="2" fill="none">
+      <!-- Left Prong Connectors -->
+      <path d="M 136 456 V 480 H 154 V 498"/>
+      <circle cx="154" cy="498" r="2.5" fill="url(#tvaCopper)"/>
+      <!-- Right Prong Connectors -->
+      <path d="M 224 456 V 480 H 206 V 498"/>
+      <circle cx="206" cy="498" r="2.5" fill="url(#tvaCopper)"/>
+      <!-- Center Stem -->
+      <path d="M 180 456 V 498"/>
+      <circle cx="180" cy="498" r="3" fill="url(#tvaCopperLight)"/>
+    </g>
+
+    <!-- Bottom Outer Pins -->
+    <rect x="68" y="504" width="16" height="12" fill="#121410" stroke="url(#tvaCopper)" stroke-width="1.2"/>
+    <rect x="276" y="504" width="16" height="12" fill="#121410" stroke="url(#tvaCopper)" stroke-width="1.2"/>
+    
+    <!-- Micro Serial Watermark -->
+    <text x="180" y="534" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="7.5" font-weight="600" letter-spacing="2" fill="url(#tvaCopper)" opacity="0.8">TEA ARCHIVAL STANDARD // FORM 89-B</text>
+  </g>
+</svg>
+                  </div>
+
+                  <!-- BACK: SACRED TIMELINE (YGGDRASIL CIRCUIT TREE) -->
+                  <div class="tva-card-face tva-card-back">
+                    <div class="tva-card-sheen" aria-hidden="true"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 560" width="100%" height="100%" class="tva-card-svg tva-back-svg">
+  <defs>
+    <!-- Metallic Copper Gradients -->
+    <linearGradient id="backCopper" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffbe7d"/>
+      <stop offset="30%" stop-color="#e2883c"/>
+      <stop offset="70%" stop-color="#c96f2a"/>
+      <stop offset="100%" stop-color="#ea9a50"/>
+    </linearGradient>
+    <linearGradient id="backCopperGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe3c2"/>
+      <stop offset="100%" stop-color="#df8235"/>
+    </linearGradient>
+    <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffeedb"/>
+      <stop offset="40%" stop-color="#f09f53"/>
+      <stop offset="100%" stop-color="#b85f1c"/>
+    </radialGradient>
+    <linearGradient id="backCardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#151712"/>
+      <stop offset="50%" stop-color="#0f110d"/>
+      <stop offset="100%" stop-color="#090a07"/>
+    </linearGradient>
+    <filter id="circuitGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="1.8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. Card Base (Matte Obsidian) -->
+  <rect x="6" y="6" width="348" height="548" rx="22" ry="22" fill="url(#backCardBg)"/>
+
+  <!-- 2. Outer Copper Double Border with Chamfered Corners -->
+  <rect x="12" y="12" width="336" height="536" rx="18" ry="18" fill="none" stroke="url(#backCopper)" stroke-width="2.2"/>
+  
+  <!-- Chamfered Inner Frame -->
+  <path d="
+    M 34 18 H 326 L 342 34 V 526 L 326 542 H 34 L 18 526 V 34 Z
+  " fill="none" stroke="url(#backCopper)" stroke-width="1" opacity="0.85"/>
+
+  <!-- Corner Tech Accent Vias -->
+  <circle cx="28" cy="28" r="2.2" fill="url(#backCopper)"/>
+  <circle cx="332" cy="28" r="2.2" fill="url(#backCopper)"/>
+  <circle cx="28" cy="532" r="2.2" fill="url(#backCopper)"/>
+  <circle cx="332" cy="532" r="2.2" fill="url(#backCopper)"/>
+
+  <!-- 3. Top-Right Cybernetic Norse Runes & Corner Circuit Bus -->
+  <g id="norse-circuit-runes" stroke="url(#backCopper)" stroke-width="1.4" fill="none" opacity="0.9">
+    <!-- Diagonal bus trace -->
+    <path d="M 300 20 L 340 60"/>
+    <path d="M 285 20 L 340 75"/>
+    <!-- Rune glyph 1 (Sowilo / ⚡) -->
+    <path d="M 314 36 L 322 30 L 316 42 L 324 38" stroke-width="1.6"/>
+    <!-- Rune glyph 2 (Laguz / Flow) -->
+    <path d="M 326 48 V 62 L 332 54" stroke-width="1.6"/>
+    <!-- Rune glyph 3 (Algiz / Divine Protection Branch) -->
+    <path d="M 334 68 V 80 M 330 72 L 334 76 L 338 72" stroke-width="1.6"/>
+  </g>
+
+  <!-- Top-Left & Bottom Corner Bus Lines -->
+  <g stroke="url(#backCopper)" stroke-width="1" fill="none" opacity="0.6">
+    <path d="M 20 40 L 40 20 H 90"/>
+    <circle cx="90" cy="20" r="1.5" fill="url(#backCopper)"/>
+    <path d="M 20 70 V 120 L 35 135"/>
+    <circle cx="35" cy="135" r="1.5" fill="url(#backCopper)"/>
+    
+    <path d="M 20 520 L 40 540 H 90"/>
+    <circle cx="90" cy="540" r="1.5" fill="url(#backCopper)"/>
+    <path d="M 340 520 L 320 540 H 270"/>
+    <circle cx="270" cy="540" r="1.5" fill="url(#backCopper)"/>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- 4. THE SACRED TIMELINE TREE (YGGDRASIL CIRCUIT ARCHITECTURE)          -->
+  <!-- ===================================================================== -->
+  <g id="yggdrasil-tree">
+    
+    <!-- A. Circuit Ground Traces & Lateral Framing -->
+    <g stroke="url(#backCopper)" stroke-width="1.2" fill="none" opacity="0.55">
+      <path d="M 30 460 H 70 V 380 H 45"/>
+      <circle cx="45" cy="380" r="2" fill="url(#backCopper)"/>
+      <path d="M 330 460 H 290 V 380 H 315"/>
+      <circle cx="315" cy="380" r="2" fill="url(#backCopper)"/>
+      <path d="M 45 490 H 85 V 525"/>
+      <circle cx="85" cy="525" r="2" fill="url(#backCopper)"/>
+      <path d="M 315 490 H 275 V 525"/>
+      <circle cx="275" cy="525" r="2" fill="url(#backCopper)"/>
+    </g>
+
+    <!-- B. The Trunk: Parallel High-Density Bus Traces -->
+    <g stroke="url(#backCopper)" stroke-width="2.4" stroke-linecap="round" fill="none" filter="url(#circuitGlow)">
+      <!-- 6 Parallel Central Trunk Traces running from y=240 down to y=380 -->
+      <line x1="170" y1="230" x2="170" y2="375"/>
+      <line x1="174" y1="210" x2="174" y2="385"/>
+      <line x1="178" y1="180" x2="178" y2="400"/>
+      <line x1="182" y1="180" x2="182" y2="400"/>
+      <line x1="186" y1="210" x2="186" y2="385"/>
+      <line x1="190" y1="230" x2="190" y2="375"/>
+    </g>
+
+    <!-- C. The Roots (Circuit Traces Spreading Downward and Outward) -->
+    <g stroke="url(#backCopper)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" fill="none">
+      <!-- Left Roots -->
+      <path d="M 170 375 C 165 405, 145 415, 120 415 H 105 V 455 H 85 V 485"/>
+      <path d="M 174 385 C 170 420, 155 435, 135 445 V 485 H 115 V 515"/>
+      <path d="M 178 400 C 176 435, 168 455, 150 470 V 505 H 135 V 530"/>
+      
+      <!-- Center Tap Root -->
+      <path d="M 180 400 V 495 H 175 V 535"/>
+      <path d="M 180 460 H 185 V 535"/>
+
+      <!-- Right Roots (Perfect Symmetry) -->
+      <path d="M 190 375 C 195 405, 215 415, 240 415 H 255 V 455 H 275 V 485"/>
+      <path d="M 186 385 C 190 420, 205 435, 225 445 V 485 H 245 V 515"/>
+      <path d="M 182 400 C 184 435, 192 455, 210 470 V 505 H 225 V 530"/>
+    </g>
+
+    <!-- D. The Branches & Canopy (The Multiverse Tree of Time) -->
+    <g stroke="url(#backCopper)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" fill="none">
+      <!-- --- LEFT CANOPY --- -->
+      <!-- Tier 1: Lowest Broad Branches (Sweeping out to edges) -->
+      <path d="M 170 340 C 150 340, 120 325, 105 310 L 75 310 L 60 295 H 45"/>
+      <path d="M 105 310 L 105 285 L 85 265 H 65"/>
+      <path d="M 120 325 L 120 295 L 95 270 V 245 H 75"/>
+
+      <!-- Tier 2: Mid-Lower Branches -->
+      <path d="M 170 295 C 150 295, 125 275, 110 250 L 90 230 V 205 H 70"/>
+      <path d="M 110 250 L 110 220 L 95 205 V 175 H 80"/>
+      <path d="M 130 280 L 130 240 L 115 225 V 185 L 95 165"/>
+
+      <!-- Tier 3: Mid-Upper Branches -->
+      <path d="M 174 240 C 160 240, 135 210, 125 180 L 110 165 V 135 L 95 120"/>
+      <path d="M 125 180 L 135 155 V 125 L 115 105"/>
+      <path d="M 145 220 L 145 175 L 135 155 V 110 L 120 95"/>
+
+      <!-- Tier 4: Crown & Inward Arches -->
+      <path d="M 178 180 C 170 170, 155 145, 150 120 L 140 100 V 75"/>
+      <path d="M 178 150 L 165 125 V 90 L 155 75"/>
+      <path d="M 180 140 V 95 L 170 80 V 55"/>
+
+      <!-- Central Apex Stem -->
+      <path d="M 180 80 V 42" stroke-width="2.6"/>
+
+      <!-- --- RIGHT CANOPY (Exact Mathematical Symmetry) --- -->
+      <!-- Tier 1: Lowest Broad Branches -->
+      <path d="M 190 340 C 210 340, 240 325, 255 310 L 285 310 L 300 295 H 315"/>
+      <path d="M 255 310 L 255 285 L 275 265 H 295"/>
+      <path d="M 240 325 L 240 295 L 265 270 V 245 H 285"/>
+
+      <!-- Tier 2: Mid-Lower Branches -->
+      <path d="M 190 295 C 210 295, 235 275, 250 250 L 270 230 V 205 H 290"/>
+      <path d="M 250 250 L 250 220 L 265 205 V 175 H 280"/>
+      <path d="M 230 280 L 230 240 L 245 225 V 185 L 265 165"/>
+
+      <!-- Tier 3: Mid-Upper Branches -->
+      <path d="M 186 240 C 200 240, 225 210, 235 180 L 250 165 V 135 L 265 120"/>
+      <path d="M 235 180 L 225 155 V 125 L 245 105"/>
+      <path d="M 215 220 L 215 175 L 225 155 V 110 L 240 95"/>
+
+      <!-- Tier 4: Crown & Inward Arches -->
+      <path d="M 182 180 C 190 170, 205 145, 210 120 L 220 100 V 75"/>
+      <path d="M 182 150 L 195 125 V 90 L 205 75"/>
+      <path d="M 180 140 V 95 L 190 80 V 55"/>
+    </g>
+
+    <!-- =================================================================== -->
+    <!-- E. THE TIMELINE NODES (Glowing Copper Junction Dots)                 -->
+    <!-- =================================================================== -->
+    <g id="timeline-nodes" filter="url(#circuitGlow)">
+      <!-- Root Nodes -->
+      <circle cx="85" cy="485" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="115" cy="515" r="4.5" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="135" cy="530" r="4.8" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="175" cy="535" r="5.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="185" cy="535" r="5.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="225" cy="530" r="4.8" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="245" cy="515" r="4.5" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="275" cy="485" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+
+      <!-- Tier 1 Branch Nodes (Lower Canopy) -->
+      <circle cx="45" cy="295" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="65" cy="265" r="4" fill="url(#nodeGlow)"/>
+      <circle cx="75" cy="245" r="4" fill="url(#nodeGlow)"/>
+      
+      <circle cx="315" cy="295" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="295" cy="265" r="4" fill="url(#nodeGlow)"/>
+      <circle cx="285" cy="245" r="4" fill="url(#nodeGlow)"/>
+
+      <!-- Tier 2 Branch Nodes (Mid-Lower Canopy) -->
+      <circle cx="70" cy="205" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="80" cy="175" r="4" fill="url(#nodeGlow)"/>
+      <circle cx="95" cy="165" r="4" fill="url(#nodeGlow)"/>
+
+      <circle cx="290" cy="205" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="280" cy="175" r="4" fill="url(#nodeGlow)"/>
+      <circle cx="265" cy="165" r="4" fill="url(#nodeGlow)"/>
+
+      <!-- Tier 3 Branch Nodes (Mid-Upper Canopy) -->
+      <circle cx="95" cy="120" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="115" cy="105" r="4" fill="url(#nodeGlow)"/>
+      <circle cx="120" cy="95" r="4" fill="url(#nodeGlow)"/>
+
+      <circle cx="265" cy="120" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="245" cy="105" r="4" fill="url(#nodeGlow)"/>
+      <circle cx="240" cy="95" r="4" fill="url(#nodeGlow)"/>
+
+      <!-- Tier 4 Branch Nodes (Crown & Apex) -->
+      <circle cx="140" cy="75" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="155" cy="75" r="4" fill="url(#nodeGlow)"/>
+      <circle cx="170" cy="55" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+
+      <circle cx="220" cy="75" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+      <circle cx="205" cy="75" r="4" fill="url(#nodeGlow)"/>
+      <circle cx="190" cy="55" r="4.2" fill="url(#nodeGlow)" class="pulse-node"/>
+
+      <!-- Central Apex Sacred Node (Loki's Multiverse Throne of Time) -->
+      <circle cx="180" cy="38" r="6.2" fill="url(#nodeGlow)"/>
+      <circle cx="180" cy="38" r="3" fill="#ffffff" opacity="0.85"/>
+
+      <!-- Intermediate Circuit Junction Solder Vias along splits -->
+      <circle cx="105" cy="310" r="2.8" fill="url(#backCopperGlow)"/>
+      <circle cx="255" cy="310" r="2.8" fill="url(#backCopperGlow)"/>
+      <circle cx="110" cy="250" r="2.8" fill="url(#backCopperGlow)"/>
+      <circle cx="250" cy="250" r="2.8" fill="url(#backCopperGlow)"/>
+      <circle cx="125" cy="180" r="2.8" fill="url(#backCopperGlow)"/>
+      <circle cx="235" cy="180" r="2.8" fill="url(#backCopperGlow)"/>
+      <circle cx="150" cy="120" r="2.8" fill="url(#backCopperGlow)"/>
+      <circle cx="210" cy="120" r="2.8" fill="url(#backCopperGlow)"/>
+      <circle cx="180" cy="95" r="3" fill="url(#backCopperGlow)"/>
+    </g>
+
+    <!-- F. Micro Telemetry Legend Text (Subtle authentic engraving) -->
+    <text x="180" y="550" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="7.5" font-weight="600" letter-spacing="2.5" fill="url(#backCopper)" opacity="0.75">YGGDRASIL // MULTIVERSE TEMPORAL NEXUS</text>
+  </g>
+</svg>
+                  </div>
+                </div>
+              </div>
+                </div>
+
+                <!-- Multiverse Dimension Telemetry Pill -->
+                <div class="temporal-dimension-badge mono" id="temporal-badge" aria-hidden="true">
+                  <span class="dimension-pulse-dot" id="dimension-dot"></span>
+                  <span class="dimension-status" id="dimension-status">TIMELINE: 616-PRIME // CANONICAL</span>
+                  <span class="dimension-variance" id="dimension-variance">SYNC: 100%</span>
+                </div>
+              </div>
+
+              <!-- Interactive Flip Controller -->
+              <button class="tva-flip-trigger mono" id="tva-flip-trigger" type="button" aria-label="Flip TEA Card">
+                <span>⟲ FLIP CARD</span>
+                <small id="tva-flip-status">[ AGENT ID ↔ SACRED TIMELINE ]</small>
+              </button>
+
+              <div class="record-info">
+                <div class="tag" style="color: #69714c">
+                  IDENTITY VERIFIED / PERSONAL ARCHIVE
+                </div>
+                <h2>Anshul Kulkarni</h2>
+                <p class="mono">
+                  CLASS: FULL-STACK ENGINEER<br />SPECIALIZATION: MERN × GENAI
+                </p>
+                <div class="barcode" aria-hidden="true"></div>
+                <span class="stamp" aria-hidden="true"
+                  >HUMAN<br />NOT A VARIANT</span
+                >
+              </div>
+            </div>
+          </div>
+                    <div class="metrics">
+            <div class="metric">
+              <b class="counter" data-target="50" data-suffix="+">50+</b>
+              <p>Clinics served<br />Hestia Dental platform</p>
+            </div>
+            <div class="metric">
+              <b class="counter" data-target="150" data-suffix="K+">150K+</b>
+              <p>Insurance verifications<br />Processed in production</p>
+            </div>
+            <div class="metric">
+              <b class="counter" data-target="40" data-suffix="%">40%</b>
+              <p>Faster deployment<br />Hestia Dental</p>
+            </div>
+            <div class="metric">
+              <b class="counter" data-target="2" data-pad="2">02</b>
+              <p>Engineering domains<br />Healthcare + GenAI</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="ticker" aria-hidden="true">
+        <div>
+          DETERMINISTIC SYSTEMS <span>✳</span> INTELLIGENT WORKFLOWS
+          <span>✳</span> HUMAN IN THE LOOP <span>✳</span> PRODUCTION OVER
+          PROTOTYPES <span>✳</span> TYPE-SAFE BY DESIGN
+          <span>✳</span> DETERMINISTIC SYSTEMS <span>✳</span> INTELLIGENT
+          WORKFLOWS <span>✳</span> HUMAN IN THE LOOP <span>✳</span> PRODUCTION
+          OVER PROTOTYPES
+        </div>
+      </div>
+      <div class="reality-divider" aria-hidden="true"></div>
+<div class="pruning-sparks"></div>
+        <span class="pruning-tag mono">PRUNING BOUNDARY // TIMELINE DISSOLVE</span>
+      </div>
+      <section class="content wrap" id="work">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">01 / Selected operations</div>
+            <h2>Proof. Not just promises.</h2>
+          </div>
+          <p>
+            Systems I've built. Problems I've solved. Open a dossier for the
+            engineering details.
+          </p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter" data-filter="all" aria-pressed="true">
+            ALL DOSSIERS</button
+          ><button class="filter" data-filter="ai" aria-pressed="false">
+            AI SYSTEMS</button
+          ><button class="filter" data-filter="healthcare" aria-pressed="false">
+            HEALTHCARE
+          </button>
+        </div>
+        <div class="projects">
+          <article class="project" data-category="ai healthcare" data-dimension="alpha">
+            <div class="dimension-shift-banner mono">
+              <span class="dimension-shift-pulse"></span>
+              <span class="dimension-shift-tag">BRANCH REALITY: ALPHA-09 // DOMAIN: HEALTHCARE × PHARMA</span>
+              <span class="dimension-shift-code">VAR: 0.04%</span>
+            </div>
+            <div
+              class="schematic"
+              aria-label="Shipment to AI validation to allocation diagram"
+            >
+              <span class="node">SHIPMENT</span><span class="arrow">→</span
+              ><span class="node hot">AI + RULES</span
+              ><span class="arrow">→</span><span class="node">STOCK</span
+              ><span class="num">OPERATION 001 / PHARMACEUTICAL SYSTEMS</span>
+            </div>
+            <div class="project-body">
+              <div class="tag">PHARMACEUTICAL TRACK & TRACE</div>
+              <h3>PhoenixRx</h3>
+              <p>
+                AI-assisted shipment validation and conversational stock lookup,
+                grounded in live inventory rather than unchecked model output.
+              </p>
+              <div class="chips">
+                <span>Gemini</span><span>Redis / Bull</span
+                ><span>FIFO allocation</span>
+              </div>
+              <details>
+                <summary>READ ENGINEERING DOSSIER +</summary>
+                <p>
+                  Combined deterministic NDC/reference mappings with Gemini
+                  reasoning. Validated AI-generated allocations against live
+                  database quantities before applying changes. Added
+                  synchronization with concurrency limits, 500-record bulk
+                  writes, exponential backoff and HTTP 429 Retry-After handling.
+                </p>
+              </details>
+            </div>
+          </article>
+          <article class="project" data-category="ai" data-dimension="gamma">
+            <div class="dimension-shift-banner mono">
+              <span class="dimension-shift-pulse"></span>
+              <span class="dimension-shift-tag">BRANCH REALITY: GAMMA-42 // APPLIED GENAI NEXUS</span>
+              <span class="dimension-shift-code">VAR: 0.02%</span>
+            </div>
+            <div
+              class="schematic"
+              aria-label="PDF to OCR to structured JSON diagram"
+            >
+              <span class="node">PDF</span><span class="arrow">→</span
+              ><span class="node hot">OCR / LLM</span
+              ><span class="arrow">→</span><span class="node">JSON</span
+              ><span class="num">OPERATION 002 / DOCUMENT INTELLIGENCE</span>
+            </div>
+            <div class="project-body">
+              <div class="tag">STREAMING DOCUMENT INTELLIGENCE</div>
+              <h3>From pixels to structured data.</h3>
+              <p>
+                A concurrent OCR-to-LLM pipeline that streams structured JSON
+                page-by-page instead of waiting for an entire PDF.
+              </p>
+              <div class="chips">
+                <span>Python / FastAPI</span><span>Cloud Vision</span
+                ><span>SSE / asyncio</span>
+              </div>
+              <details>
+                <summary>READ ENGINEERING DOSSIER +</summary>
+                <p>
+                  Used Google Cloud Vision, Cloud Storage and Gemini 2.5 Flash.
+                  Bounded page concurrency with asyncio semaphores up to 100
+                  pages, offloaded blocking storage calls using run_in_executor,
+                  and pre-filtered blank or boilerplate pages before inference.
+                </p>
+              </details>
+            </div>
+          </article>
+          <article class="project" data-category="healthcare" data-dimension="epsilon">
+            <div class="dimension-shift-banner mono">
+              <span class="dimension-shift-pulse"></span>
+              <span class="dimension-shift-tag">BRANCH REALITY: EPSILON-16 // DETERMINISTIC WORKFLOWS</span>
+              <span class="dimension-shift-code">VAR: 0.01%</span>
+            </div>
+            <div
+              class="schematic"
+              aria-label="EDI to parser to typed data diagram"
+            >
+              <span class="node">837</span><span class="arrow">→</span
+              ><span class="node hot">PARSER</span><span class="arrow">→</span
+              ><span class="node">TYPED JSON</span
+              ><span class="num">OPERATION 003 / WORKFLOW AUTOMATION</span>
+            </div>
+            <div class="project-body">
+              <div class="tag">HEALTHCARE DATA & AUTOMATION</div>
+              <h3>Making complex claims readable.</h3>
+              <p>
+                Typed EDI normalization and browser-based document tools that
+                turn fragmented billing data into usable workflows.
+              </p>
+              <div class="chips">
+                <span>TypeScript</span><span>ANSI X12 EDI 837</span
+                ><span>pdf-lib</span>
+              </div>
+              <details>
+                <summary>READ ENGINEERING DOSSIER +</summary>
+                <p>
+                  Mapped provider, subscriber, payer, diagnosis, claim and
+                  service-line data into typed JSON. Implemented PDF merging,
+                  extraction, deletion and rearrangement in-browser. Built
+                  persistent multi-step validation for forms populated from
+                  HCFA-1500, APTP and pharmacy appeal data.
+                </p>
+              </details>
+            </div>
+          </article>
+        </div>
+        <p class="note">
+          ARCHIVE NOTE / Project source links are intentionally omitted where no
+          public repository was supplied.
+        </p>
+      </section>
+      <div class="reality-divider" aria-hidden="true"></div>
+<div class="pruning-sparks"></div>
+        <span class="pruning-tag mono">CHRONO-SHIFT // REVERSING TIMELINE STREAM</span>
+      </div>
+      <section class="content experience" id="experience">
+        <div class="wrap">
+                    <div class="section-head">
+            <div class="experience-head-content">
+              <div class="eyebrow">02 / The professional timeline</div>
+              <h2>Real work. Real consequences.</h2>
+              <div class="dossier-archive-seal mono">
+                <span class="seal-branch">BRANCH № 001 ➔ 002</span>
+                <span class="seal-divider">·</span>
+                <span class="seal-temporal">CHRONOLOGICAL FIELDWORK DOSSIER</span>
+                <span class="seal-stamp">OFFICIALLY RECORDED</span>
+              </div>
+            </div>
+            <p>
+              Production engineering across healthcare, billing, security and
+              applied AI.
+            </p>
+          </div>
+          <div class="timeline">
+            <article class="job">
+              <div class="date">
+                JAN 2025 — PRESENT<br />BENGALURU · REMOTE<br /><br />BRANCH /
+                001
+              </div>
+              <div>
+                <h3>Tesserin Global</h3>
+                <div class="role">SOFTWARE ENGINEER — ASSOCIATE</div>
+                <ul>
+                  <li>
+                    Built the 4MostRx RCM and billing backend from scratch as a
+                    Node.js, Express and TypeScript modular monolith with
+                    PostgreSQL and MongoDB.
+                  </li>
+                  <li>
+                    Built Gemini-powered drug reconciliation: matches above 90%
+                    confidence are auto-resolved; lower-confidence results enter
+                    human review.
+                  </li>
+                  <li>
+                    Designed a four-tier payment ledger, A/R aging automations
+                    and a natural-language planner producing structured
+                    PostgreSQL filters.
+                  </li>
+                  <li>
+                    Implemented encrypted direct-to-S3 uploads, passkeys, TOTP
+                    MFA, step-up authentication and batched audit processing
+                    with verified S3 archives.
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <article class="job">
+              <div class="date">
+                SEP 2024 — NOV 2024<br />ALBANY, NEW YORK · REMOTE<br /><br />BRANCH
+                / 002
+              </div>
+              <div>
+                <h3>Hestia Dental</h3>
+                <div class="role">MERN STACK DEVELOPER INTERN</div>
+                <ul>
+                  <li>
+                    Built a multi-tenant insurance verification platform serving
+                    50+ clinics and processing 150,000+ verifications in
+                    production.
+                  </li>
+                  <li>
+                    Integrated Open Dental PMS through bidirectional FHIR/API
+                    workflows, reducing per-patient manual entry from
+                    approximately 15 minutes to seconds.
+                  </li>
+                  <li>
+                    Moved PDF generation, email and eligibility checks into
+                    Redis/Bull workers; containerized deployment with Docker and
+                    PM2, cutting deployment time by 40%.
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <div class="reality-divider" aria-hidden="true"></div>
+<div class="pruning-sparks"></div>
+        <span class="pruning-tag mono">THE LOOM APERTURE // WEAVING ARCHITECTURE</span>
+      </div>
+      <section class="content wrap" id="skills">
+        <div class="skills-layout">
+          <div>
+            <div class="eyebrow">03 / Engineering toolkit</div>
+            <div class="section-head">
+              <h2>Built for<br />the whole stack.</h2>
+            </div>
+            <p class="intro">
+              Interfaces, APIs, queues, data and AI — connected into systems
+              that hold up beyond the demo.
+            </p>
+            <div class="education">
+              <div class="eyebrow">FOUNDATION / EDUCATION</div>
+              MCA · G. H. Raisoni College of Engineering and Management, Pune ·
+              2023–2025<br /><br />BSc Computer Science · D. B. Science College,
+              Gondia · 2020–2023
+            </div>
+          </div>
+          <div>
+            <div class="skill-row">
+              <h3>01 / INTERFACES</h3>
+              <p>
+                React · Next.js · TypeScript · Redux Toolkit · TanStack Query ·
+                Tailwind CSS
+              </p>
+            </div>
+            <div class="skill-row">
+              <h3>02 / SYSTEMS</h3>
+              <p>
+                Node.js · Express · NestJS · FastAPI · REST · GraphQL ·
+                WebSockets · Server-Sent Events
+              </p>
+            </div>
+            <div class="skill-row">
+              <h3>03 / DATA</h3>
+              <p>
+                PostgreSQL · MongoDB · Redis · BullMQ · Schema design · Query
+                optimization
+              </p>
+            </div>
+            <div class="skill-row">
+              <h3>04 / INTELLIGENCE</h3>
+              <p>
+                Gemini API · Structured outputs · RAG pipelines · Prompt
+                engineering · Cloud Vision OCR
+              </p>
+            </div>
+            <div class="skill-row">
+              <h3>05 / DELIVERY</h3>
+              <p>
+                Docker · AWS S3 / EC2 / KMS · DigitalOcean · GitHub Actions ·
+                Jest · Supertest
+              </p>
+            </div>
+            <div class="skill-row">
+              <h3>06 / TRUST</h3>
+              <p>
+                Passkeys · TOTP MFA · OAuth 2.0 · RBAC · CSRF protection ·
+                HIPAA-oriented controls · EDI 837
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact" id="contact">
+        <div class="reset-charge-portal" aria-hidden="true">
+          <div class="reset-ring reset-ring-1"></div>
+          <div class="reset-ring reset-ring-2"></div>
+          <div class="reset-ring reset-ring-3"></div>
+          <div class="reset-core-glow"></div>
+        </div>
+        <div class="wrap" style="position:relative; z-index:2;">
+          <div class="reset-status-pill mono">
+            <i class="dot" style="background:#8cb852; box-shadow:0 0 8px #8cb852;"></i>
+            <span>TIMELINE STABILITY: 100% // CANONICAL TIMELINE RESTORED</span>
+          </div>
+          <div class="eyebrow">04 / Open a new branch</div>
+          <h2>Your next system.<br /><span>Let's build it right.</span></h2>
+          <p>
+            Full-stack engineering, healthcare workflows, or practical AI
+            integration.<br />Have a role or a project in mind? Start a
+            conversation.
+          </p>
+          <div class="actions">
+            <a class="button" href="mailto:anshulkulkarni00@gmail.com"
+              >LET'S BUILD TOGETHER <span>↗</span></a
+            ><button class="button secondary" id="copy-email">
+              COPY EMAIL <span>⧉</span>
+            </button>
+          </div>
+          <p class="mono" style="font-size: 11px; margin-top: 24px">
+            anshulkulkarni00@gmail.com
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="wrap">
+        <span
+          >© <span id="year">2026</span> ANSHUL KULKARNI / NO TIMELINES WERE
+          PRUNED.</span
+        >
+        <div class="socials">
+          <a
+            href="https://github.com/anshulsemicolon"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GITHUB ↗</a
+          ><a
+            href="https://www.linkedin.com/in/anshul-kulkarni-822a76241"
+            target="_blank"
+            rel="noopener noreferrer"
+            >LINKEDIN ↗</a
+          ><a href="#home">BACK TO TOP ↑</a>
+        </div>
+      </div>
+      <div class="wrap" style="margin-top: 15px; font-size: 8px">
+        Independent portfolio. Fan-inspired retrofuturist visual treatment; not
+        affiliated with Marvel or Disney. 2050 is a fictional interface setting.
+      </div>
+    </footer>
+    <div class="toast" role="status" hidden></div>
+    <!-- <audio id="bgm-audio" src="public/sound.mp3" preload="auto" loop></audio> -->
+    <script src="js/index.js" defer></script>
+  </body>
+</html>
